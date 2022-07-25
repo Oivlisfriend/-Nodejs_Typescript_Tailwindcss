@@ -6,49 +6,49 @@ import { useState } from "react";
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from "./Steps/FeeddbackSuccessStep";
-export const feedbackTypes={
-    BUG:{
-        title:'Problema',
-        image:{
+export const feedbackTypes = {
+    BUG: {
+        title: 'Problema',
+        image: {
             source: bugImageUrl,
-            alt:'Imagem de um insecto'
+            alt: 'Imagem de um insecto'
         },
     },
-    IDEA:{
-        title:'Ideia',
-        image:{
+    IDEA: {
+        title: 'Ideia',
+        image: {
             source: ideaImageUrl,
-            alt:'Imagem de uma lâmpada'
+            alt: 'Imagem de uma lâmpada'
         },
     },
-    OTHER:{
-        title:'Outro',
-        image:{
+    OTHER: {
+        title: 'Outro',
+        image: {
             source: thoughtImageUrl,
-            alt:'Imagem de um balão de pensamento'
+            alt: 'Imagem de um balão de pensamento'
         },
     },
-    
+
 }
 export type FeedbackType = keyof typeof feedbackTypes
-export function WidgetForm( ){
-const [feedbackType,setfeedbackType] = useState<FeedbackType | null>(null)
-const[feedbackSent, setFeedbackSent] = useState(false);
-function handleRestartFeedback(){
-    setfeedbackType(null)
-    setFeedbackSent(false);
-}
-    return(
+export function WidgetForm() {
+    const [feedbackType, setfeedbackType] = useState<FeedbackType | null>(null)
+    const [feedbackSent, setFeedbackSent] = useState(false);
+    function handleRestartFeedback() {
+        setfeedbackType(null)
+        setFeedbackSent(false);
+    }
+    return (
         <div className="bg-zinc-900 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
-            
-                  {feedbackSent ? (<FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback}/>):(
-                        <>
-                        {!feedbackType?
-                            (<FeedbackTypeStep onFeedbackTypeChanged={setfeedbackType}/>) :(<FeedbackContentStep feedbackType={feedbackType} onFeedbackRestartRequested={handleRestartFeedback} onFeedbackSent={()=>setFeedbackSent(true)}/>)}
-                        </>
-                  )}
+
+            {feedbackSent ? (<FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback} />) : (
+                <>
+                    {!feedbackType ?
+                        (<FeedbackTypeStep onFeedbackTypeChanged={setfeedbackType} />) : (<FeedbackContentStep feedbackType={feedbackType} onFeedbackRestartRequested={handleRestartFeedback} onFeedbackSent={() => setFeedbackSent(true)} />)}
+                </>
+            )}
             <footer className="text-xs text-neutral-400">
-                Aprender nunca é demais <a  className="underline underline-offset-2" href="#">DeltaGame</a> 
+                Aprender nunca é demais <a className="underline underline-offset-2" href="#">DeltaGame-Sílvio Gongo</a>
             </footer>
         </div>
     )
