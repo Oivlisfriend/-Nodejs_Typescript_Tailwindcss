@@ -48,7 +48,7 @@ export function WidgetForm() {
                 </>
             )}
             <footer className="text-xs text-neutral-400">
-                Aprender nunca é demais <a className="underline underline-offset-2" href="#">DeltaGame-Sílvio Gongo</a>
+                Aprender nunca é demais <a className="underline underline-offset-2" href="#">Delta Arts.-Sílvio Gongo</a>
             </footer>
         </div>
     )
