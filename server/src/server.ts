@@ -14,6 +14,6 @@ const transport = nodemailer.createTransport({
         pass: "9c5f0be8a63d35"
     }
 });
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
     console.log('HTTP server running !');
 });
